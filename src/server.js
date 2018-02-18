@@ -9,5 +9,5 @@ export default function startServer(store){
 
   io.on('connection',(socket) => {
     socket.emit('state',store.getStore().toJS());
-  }
+  });
 }
