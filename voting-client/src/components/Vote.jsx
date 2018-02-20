@@ -1,20 +1,29 @@
 import React from 'react';
 
-const Vote = (props) => {
-  const isDisabled = !!props.hasVoted;
-  const hasVotedFor = (entry) => {return props.hasVoted === entry };
+export default class Vote extends React.PureComponent{
 
-  return(
-    <div className="voting">
-      {props.pair.map(entry =>
-        <button key={entry} disabled={isDisabled} onClick={() => props.vote(entry)}>
-          <h1>{entry}</h1>
-          {hasVotedFor(entry)? <div className="label">Voted</div> : null}
-        </button>
-      )}
-    </div>
-  );
-};
+  constructor(props){
+    super(props);
+  }
 
-export default Vote;
+  isDisabled(){
+    return !!this.props.hasVoted;
+  }
+  
+  hasVotedFor(entry){
+    return this.props.hasVoted === entry;
+  }
 
+  render(){
+    return(
+      <div className="voting">
+        {this.props.pair.map(entry =>
+          <button key={entry} disabled={this.isDisabled()} onClick={() => this.props.vote(entry)}>
+            <h1>{entry}</h1>
+            {this.hasVotedFor(entry)? <div className="label">Voted</div> : null}
+          </button>
+        )}
+      </div>
+    );
+  }
+}

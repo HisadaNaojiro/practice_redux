@@ -1,11 +1,15 @@
 import React from 'react';
 
-const Winner = (props) =>{
-  return(
-    <div className="winner">
-      Winner is {props.winner}!
-    </div>
-  );
-};
+export default class Winner extends React.PureComponent{
+  constructor(props){
+    super(props);
+  }
 
-export default Winner;
+  render(){
+    return(
+      <div className="winner">
+        Winner is {this.props.winner}!
+      </div>
+    );
+  }
+}
