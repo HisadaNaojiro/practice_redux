@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Winner from './Winner';
 import Vote from './Vote';
+import * as actionCreators from '../action_creators';
 
 /* mixminを実現する方法はPureComponentを使用*/
 export class Voting extends React.PureComponent{
@@ -26,8 +27,9 @@ export class Voting extends React.PureComponent{
 function __mapStateToProps(state){
   return {
     pair: state.getIn(['vote', 'pair']),
+    hasVoted: state.get('hasVoted'),
     winner: state.get('winner')
   };
 }
 
-export const VotingContainer = connect(__mapStateToProps)(Voting); 
+export const VotingContainer = connect(__mapStateToProps,actionCreators)(Voting); 
