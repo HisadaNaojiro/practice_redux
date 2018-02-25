@@ -8,7 +8,7 @@ export default function startServer(store){
   );
 
   io.on('connection',(socket) => {
-    socket.emit('state',store.getStore().toJS());
+    socket.emit('state',store.getState().toJS());
   });
 
   io.on('connection',(socket) => {
