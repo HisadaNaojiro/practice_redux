@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Winner from './Winner';
+import * as actionCreators from '../action_creators';
 
 export class Results extends React.PureComponent{
   constructor(props){
@@ -53,4 +54,4 @@ function __mapStateToProps(state){
   };
 }
 
-export const ResultsContainer = connect(__mapStateToProps)(Results);
+export const ResultsContainer = connect(__mapStateToProps, actionCreators)(Results);
