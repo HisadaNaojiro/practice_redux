@@ -7,9 +7,17 @@ const setState = (state) => {
 
 const vote = (entry) => {
   return {
+    meta: {remote: true},
     type: 'VOTE',
     entry
   };
 }
 
-export {setState,vote};
+const next = () => {
+  return{
+    meta: {remote: true},
+    type: 'NEXT'
+  };
+}
+
+export {setState, vote, next};
